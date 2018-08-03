@@ -41,7 +41,7 @@ spec:
       - name: pic-volume
         emptyDir: {}
       dnsPolicy: ClusterFirst
-      nodeName: "{{ .Values.connector.name }}"
+      nodeName: "{{ .Values.connector.vkname }}"
       tolerations:
       - key: azure.com/aci
         effect: NoSchedule
