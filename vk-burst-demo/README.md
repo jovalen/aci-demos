@@ -104,7 +104,7 @@ The connector has been deployed and with a `kubectl get nodes` you can see that 
 kubectl get node
 ```
 
-Edit the values.yaml file and replace the '<vkname>' with the ACI connector name in previous step.
+Edit the values.yaml file and replace the `<vkname>` with the ACI connector name got in the previous step.
 ```
 $ vim ./charts/fr-demo/values.yaml 
 ```
