@@ -96,3 +96,5 @@ backend:
     # requests:
     #  cpu: 100m
     #  memory: 128Mi
+connector:
+  name: "virtual-kubelet-myaciconnector-linux-westeurope"
