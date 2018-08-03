@@ -117,6 +117,7 @@ Check the connector node name matches the name in the file ir-aci-deployment.yam
 
 ```
 $ grep nodeName ./charts/fr-demo/templates/ir-aci-deployment.yaml
+       nodeName: virtual-kubelet-myaciconnector-linux-westeurope
 ```
 
 If it doesnt match, change the name in the ir-aci-deployment.yaml to reflect the current connector node name.
