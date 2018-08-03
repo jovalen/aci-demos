@@ -107,7 +107,21 @@ Replace `<myResourceGroupmy>`, `<myK8sCluster>` with yours in previous steps and
 az aks install-connector --resource-group <myResourceGroup> --name <myK8sCluster> --connector-name myaciconnector
 ```
 
-The connector has been deployed and with a `kubectl get nodes` you can see that the ACI Connector is a new node in your cluster. Now scale up the image recognizer to 10 using the following command
+The connector has been deployed and with a `kubectl get nodes` you can see that the ACI Connector is a new node in your cluster.
+
+```
+kubectl get node
+```
+
+Check the connector node name matches the name in the file ir-aci-deployment.yaml
+
+```
+$ grep nodeName ./charts/fr-demo/templates/ir-aci-deployment.yaml
+```
+
+If it doesnt match, change the name in the ir-aci-deployment.yaml to reflect the current connector node name.
+
+Now scale up the image recognizer to 10 using the following command
 
 ```
 $ kubectl scale deploy demo-fr-ir-aci --replicas 10
