@@ -86,19 +86,10 @@ $ chmod u+x assignFQDNtoIP.sh
 $ ./assignFQDNtoIP.sh -g <myResourceGroup> -d <appName> -i <IP Address>
 ```
 
-Edit the values.yaml file and replace all `<host name>` with the FQDN name in pervious step.
+Edit the values.yaml file and replace all `<host name>` with the FQDN name in previous step.
 ```
 $ vim ./charts/fr-demo/values.yaml 
 ```
-
-Start at the top of the aci-demos directory and deploy the Facial Recognition application that consists of a frontend, a backend, and a set of image recognizers.
-
-```
-$ helm install charts/fr-demo --name demo
-```
-
-Checkout the UI that's generated in the output and see the pictures start to get processed
-The rate will be super slow because we have a 1 node AKS cluster running 1 worker pod.
 
 Deploy the ACI connector :
 Replace `<myResourceGroupmy>`, `<myK8sCluster>` with yours in previous steps and run following command
@@ -113,13 +104,19 @@ The connector has been deployed and with a `kubectl get nodes` you can see that 
 kubectl get node
 ```
 
-Check the connector node name matches the name in the file ir-aci-deployment.yaml
+Edit the values.yaml file and replace the '<vkname>' with the ACI connector name in previous step.
+```
+$ vim ./charts/fr-demo/values.yaml 
+```
+
+Start at the top of the aci-demos directory and deploy the Facial Recognition application that consists of a frontend, a backend, and a set of image recognizers.
 
 ```
-$ grep nodeName ./charts/fr-demo/templates/ir-aci-deployment.yaml     
+$ helm install charts/fr-demo --name demo
 ```
 
-If it doesnt match, change the name in the ir-aci-deployment.yaml to reflect the current connector node name.
+Checkout the UI that's generated in the output and see the pictures start to get processed
+The rate will be super slow because we have a 1 node AKS cluster running 1 worker pod.
 
 Now scale up the image recognizer to 10 using the following command
 
